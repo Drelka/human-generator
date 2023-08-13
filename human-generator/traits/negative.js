@@ -1,4 +1,4 @@
-b = ['Abrasive',
+negativeT = ['Abrasive',
 'Abrupt',
 'Agonizing',
 'Aimless',
