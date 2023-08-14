@@ -4,13 +4,41 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
+    margin: 20px 0;
     padding: 0;
     text-align: center;
-    background-color: honeydew;
+    background-color: rgba(175, 185, 197, 0.589);
+}
+
+.wrapper{
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 20px;
 }
 
 nav{
     margin-top: 20px;
 }
 
+header{
+    padding: 50px;
+}
+
+header > #logo{
+    font-size: 2em;
+}
+
+main{
+    padding: 50px;
+}
+
+section{
+    float: left;
+    width: 80%;
+}
+
+aside{
+    float: right;
+    width: 20%;
+}
