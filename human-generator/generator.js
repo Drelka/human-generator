@@ -19,3 +19,8 @@ human.negativeTrait = randomC;
 function character(){
     return Object.keys(human);
 }
+
+function displayText() {
+    var text = document.getElementById("textField");
+    text.style.display = "block";
+}
