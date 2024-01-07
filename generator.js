@@ -640,16 +640,22 @@ const negative = ['Abrasive',
     'Wishful',
     'Zany'];
 
-const btn = document.querySelector("button");
+const generateBtn = document.querySelector(".generate");
 const result = document.querySelector(".result");
 
 const genders = ["male", "female"];
+
+    // functions generating and returning random values "in range of..":
+
 let randomGender = function(){
     return genders[Math.floor(Math.random() * genders.length)];
 }
 
-//random age from 16 to 65 (66 not included)
-let randomAge = function(min, max){
+let randomFemaleAge = function(min, max){
+    return Math.floor(Math.random() * (76 - 16) + 16);
+}
+
+let randomMaleAge = function(min, max){
     return Math.floor(Math.random() * (66 - 16) + 16);
 }
 
@@ -658,7 +664,7 @@ let randomFemaleHeight = function(min, max){
 }
 
 let randomMaleHeight = function(min, max){
-    return Math.floor(Math.random() * (200 - 160) + 160);
+    return (randomFemaleHeight() + 10);
 }
 
 let randomPositive = function(){
@@ -673,27 +679,68 @@ let randomNegative = function(){
     return negative[Math.floor(Math.random() * negative.length)];
 }
 
+    // functions for creating and appending para to make code more clear:
 
-// add button with on click event, running a loop that uses functions above
-// and appends paragraphs with .textContent
-    // prevent showing same traits more than once
+let createPara = function(paraText){
+    para = document.createElement("p");
+    para.textContent = paraText;
+    return para; }
 
-// when generating multiple times, clear the old results and show
-// only the new one
-
-// if woman - age gap higher, height lower
-// if man - the other way around
-
-// in future may try to use multiple js files and import options
+let appendPara = function(){
+    return result.appendChild(para); }
 
 
 
-console.log(randomGender());
-console.log(randomAge());
-console.log(randomFemaleHeight());
-console.log(randomMaleHeight());
-console.log(randomPositive());
-console.log(randomNeutral());
-console.log(randomNegative());
+generateBtn.addEventListener("click", () => {
+
+    if (result.innerHTML !== ""){
+        result.innerHTML = "";
+    }
+
+    randomGender();
+    createPara("Gender: " + randomGender());
+    appendPara();
+
+    if (randomGender() === "female"){
+
+        randomFemaleAge();
+        createPara("Age (years): " + randomFemaleAge());
+        appendPara();
+
+        randomFemaleHeight();
+        createPara("Height (cm): " + randomFemaleHeight());
+        appendPara();
+
+    } else {
+
+        randomMaleAge();
+        createPara("Age (years): " + randomMaleAge());
+        appendPara();
+
+        randomMaleHeight();
+        createPara("Height (cm): " + randomMaleHeight());
+        appendPara();
+
+    }
 
 
+    randomNeutral();
+    createPara("Neutral trait: " + randomNeutral());
+    appendPara();
+
+    randomPositive();
+    createPara("Positive traits: " + randomPositive() + ", " + randomPositive());
+    appendPara();
+
+    randomNegative();
+    createPara("Negative traits: " + randomNegative() + ", " + randomNegative());
+    appendPara();
+
+
+});
+
+
+
+// (?) prevent showing same traits more than once
+
+// (?) in future may try to use multiple js files and import options

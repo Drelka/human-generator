@@ -8,15 +8,32 @@
 <body>
     <p>GENERATE CHARACTER:
         <br> - 2 genders,
-        <br> - age from 16 to 65,
-        <br> - height from 150 to 200 cm,
+        <br> - age min=16 max=65 (75 if female),
+        <br> - height from 150 to 190cm (+10cm for a male),
         <br> - traits (2 positive, 1 neutral, 2 negative).
     </p>
 
-    <button>GENERATE</button>
+    <button class="generate">GENERATE</button>
 
     <div class="result"></div>
 
     <script src="./generator.js"></script>
 </body>
 </html>
+
+
+<!-- 
+
+randomGender
+*
+    randomFemaleAge
+    randomFemaleHeight
+*
+    randomMaleAge
+    randomMaleHeight
+
+randomNeutral
+randomPositive
+randomNegative
+
+-->
