@@ -1,4 +1,4 @@
-positiveT = [
+positive = [
 'Accessible',
 'Active',
 'Adaptable',

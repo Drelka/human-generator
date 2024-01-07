@@ -1,4 +1,4 @@
-neutralT = ['Absentminded',
+neutral = ['Absentminded',
 'Aggressive',
 'Ambitious',
 'Amusing',
